@@ -16,7 +16,7 @@ public class Mira : MonoBehaviour {
 	
 	public float pontos;
 	
-
+	public bool rota;
 	
 	// Use this for initialization
 	void Start () {
