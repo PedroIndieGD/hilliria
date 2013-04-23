@@ -25,6 +25,7 @@ public class Player : MonoBehaviour {
 		radius = GameObject.FindGameObjectWithTag("Radius");
 		list_shots = new List<GameObject>();
 		list_enemy = new List<GameObject>();
+		direcao = new Vector3(0,0,0);
 		
 	}
 	
@@ -42,11 +43,11 @@ public class Player : MonoBehaviour {
 		     
 		#region limitando posicao
 		
-		if(direcao.x > m_s.transform.position.x +1) direcao.x -= 0.7f;
-		if(direcao.x < m_s.transform.position.x -1)direcao.x += 0.7f;
-		if(direcao.y > m_s.transform.position.y +1)direcao.y -= 0.7f;
-		if(direcao.y < m_s.transform.position.y -1)direcao.y += 0.7f;
-
+		if(direcao.x > m_s.transform.position.x ) direcao.x = m_s.transform.position.x;
+		if(direcao.x < m_s.transform.position.x )direcao.x = m_s.transform.position.x;
+		if(direcao.y > m_s.transform.position.y +6)direcao.y = m_s.transform.position.y+6;
+		if(direcao.y < m_s.transform.position.y +6)direcao.y = m_s.transform.position.y+6;
+			 
        #endregion
 		
         transform.position = new Vector3(direcao.x, direcao.y, transform.position.z + m_s.velocidade);   	
@@ -56,7 +57,7 @@ public class Player : MonoBehaviour {
 			
 		#region tiro
 		
-		posi_shots = new Vector3(transform.position.x, transform.position.y, transform.position.z + 30 );
+		posi_shots = new Vector3(transform.position.x, transform.position.y -5, transform.position.z +10 );
 		
 		if(Input.GetMouseButtonDown(0))
 		{

@@ -7,14 +7,14 @@ public class escolher_fase : MonoBehaviour {
 	
 		if(transform.position.z > -400)
 		{
-		if(GUI.Button(new Rect(Screen.width/2 + 400, Screen.height/2 , 100, 90), "next")){
+		if(GUI.Button(new Rect(Screen.width/2 + 500, Screen.height/2 , 100, 90), "next")){
 			
 			if(transform.position.z > -400)transform.position = new Vector3(transform.position.x , transform.position.y , transform.position.z - 50);
 		}
 		}
 		if(transform.position.z < 0)
 		{
-		if(GUI.Button(new Rect(Screen.width/2 - 450, Screen.height/2 , 100, 90), "previous")){
+		if(GUI.Button(new Rect(Screen.width/2 - 550, Screen.height/2 , 100, 90), "previous")){
 			
 			if(transform.position.z < 0)transform.position = new Vector3(transform.position.x , transform.position.y , transform.position.z + 50);
 		}

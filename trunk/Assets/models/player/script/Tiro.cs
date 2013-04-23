@@ -24,7 +24,7 @@ public class Tiro : MonoBehaviour {
 		
 		if(destruir >= 5) Destroy(this.gameObject);
 		
-	   	transform.Translate(Vector3.forward * 6 );		
+	   	transform.Translate(Vector3.forward * 7 );		
 				
 	}
 	

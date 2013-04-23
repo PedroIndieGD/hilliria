@@ -16,12 +16,17 @@ public class Mira : MonoBehaviour {
 	
 	public float pontos;
 	
+
+	
 	// Use this for initialization
 	void Start () {
 
 		velocidade = 2;
 		boost = false;
 		brake = false;
+		
+		direcao = new Vector3(0,-6,150);
+
 	}
 	
 	// Update is called once per frame
@@ -29,16 +34,21 @@ public class Mira : MonoBehaviour {
 	{
 		
 		#region regulando velocidade
-		if(energia >=5)
+		if(energia >= 5)
 		{
 			if(Input.GetKeyDown(KeyCode.W)) boost = true;
 			if(Input.GetKeyDown(KeyCode.S)) brake = true;
+		}
+		else if( energia <=0)
+		{
+			boost = false;
+			brake = false;
 		}
 		if(Input.GetKeyUp(KeyCode.W)) boost = false;
 		if(Input.GetKeyUp(KeyCode.S)) brake = false;
 		if(boost == true)
 		{
-			 velocidade =5;
+			 velocidade = 5;
 			 energia--;		
 		}
 		if(brake == true)
@@ -50,13 +60,13 @@ public class Mira : MonoBehaviour {
 			
 		#endregion
 	
-		direcao.x += Input.GetAxis("Mouse X") * 2;
-		direcao.y += Input.GetAxis("Mouse Y") * 2;
+		direcao.x += Input.GetAxis("Mouse X") * 5;
+		direcao.y += Input.GetAxis("Mouse Y") * 5;
          
-		if(direcao.x > 59)direcao.x = 59;
-		if(direcao.x < -59)direcao.x = -59;
-		if(direcao.y > 28)direcao.y = 28;
-		if(direcao.y < -28)direcao.y = -28; 
+		if(direcao.x > 150)direcao.x = 150;
+		if(direcao.x < -150)direcao.x = -150;
+		if(direcao.y > 100)direcao.y = 100;
+		if(direcao.y < -20)direcao.y = -20; 
 		
         transform.position = new Vector3(direcao.x, direcao.y, transform.position.z + velocidade);   						
 		 
