@@ -30,8 +30,9 @@ public class enemyShot : MonoBehaviour {
 	void OnTriggerEnter(Collider Target){
 		
 		Mira m_s = mira.GetComponent<Mira>();
-		m_s.vida -=35;
+		//m_s.vida -=35;
 		Destroy(this.gameObject);
+		m_s.rota=true;
 		
 		//Application.LoadLevel(13);
 		
