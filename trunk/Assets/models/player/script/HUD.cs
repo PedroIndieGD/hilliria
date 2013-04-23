@@ -4,6 +4,7 @@ using System.Collections;
 public class HUD : MonoBehaviour {
 	
 	public Texture2D image;
+	public Texture2D image2;
 
 	Rect vida;
 	Rect energia;
@@ -65,7 +66,7 @@ public class HUD : MonoBehaviour {
 		GUI.Label(new Rect(100,100,1000,100) , "Pontos: " + m_s.pontos.ToString());
 		
 		GUI.DrawTexture(vida , image);
-		GUI.DrawTexture(energia ,image);
+		GUI.DrawTexture(energia ,image2);
 		
 	}
 }
