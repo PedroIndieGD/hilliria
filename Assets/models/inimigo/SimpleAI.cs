@@ -93,12 +93,12 @@ public class SimpleAI : MonoBehaviour {
 				
 			}
 			
-			if(this.transform.position.y < Player.position.y + 10 ){
+			if(this.transform.position.y < Player.position.y  ){
 				
 				//this.transform.position.x = new Vector3(Player.position.x,this.transform.position.y,this.transform.position.z);
 				this.transform.position += new Vector3(0,0.4f,0);
 			}
-			else if(this.transform.position.x > Player.position.y - 10){
+			else if(this.transform.position.x > Player.position.y ){
 				this.transform.position -= new Vector3(0,0.4f,0);
 				
 			}
@@ -147,7 +147,7 @@ public class SimpleAI : MonoBehaviour {
 	void OnTriggerEnter(Collider Player){
 		
 		Mira m_s = mira.GetComponent<Mira>();
-		//m_s.vida -=10;
+		m_s.vida -=35;
 		Destroy(this.gameObject);
 		//Application.LoadLevel(13);
 		

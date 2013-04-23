@@ -9,7 +9,7 @@ public class Intro : MonoBehaviour {
 	{
 		transform.position = new Vector3(transform.position.x , transform.position.y -0.02f , transform.position.z);
 		
-		if(transform.position.y < -250)Application.LoadLevel(1);
+		if(transform.position.y < -140)Application.LoadLevel(1);
 	
 	}
 	

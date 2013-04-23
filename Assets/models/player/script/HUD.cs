@@ -35,14 +35,14 @@ public class HUD : MonoBehaviour {
 		
 		ganhar_energia++;
 		
-		if(m_s.vida >= 100) m_s.vida = 100;
-		if(m_s.energia >= 100) m_s.energia = 100;
+		if(m_s.vida >= 105) m_s.vida = 105;
+		if(m_s.energia >= 105) m_s.energia = 105;
 		if(m_s.vida <= 0) Application.LoadLevel(13);
-		if(m_s.energia <= 0) m_s.energia = 0;
+		if(m_s.energia < 0) m_s.energia = 0;
 		
 		if(m_s.boost == false && m_s.brake == false)
 		{
-		if(ganhar_energia >= 30 && m_s.energia < 100) 
+		if(ganhar_energia >= 30 && m_s.energia < 105) 
 		{
 		     m_s.energia +=5;
 			ganhar_energia =0;
