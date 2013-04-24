@@ -15,11 +15,12 @@ public class TimeTrialMode : MonoBehaviour {
 	
 	public GameObject bomba;
 	
+	
 	// Use this for initialization
 	void Start () {
 		
 		regressiveCounter = 0;
-		amountTime = 20 ;
+		amountTime = 180 ;
 		initialTime = Time.time;
 		bomba = GameObject.FindGameObjectWithTag("bomba");
 		

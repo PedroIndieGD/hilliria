@@ -10,9 +10,14 @@ public class Player : MonoBehaviour {
 	protected bool Paused;
 	public List<GameObject> list_shots;
 	public List<GameObject> list_enemy;
-	int spawnTimer;
 	float  randomX,randomY;
-
+	
+	int SpawnTime = 0;
+	int nextSpawnTime = 10;
+	public bool InitializedExtreme = false;
+	int WaveSize = 2;
+	int wave = 0;
+	int MaxEnemyOnScreen = 20;
 	#endregion
 	
 	Vector3 direcao;
@@ -66,11 +71,28 @@ public class Player : MonoBehaviour {
 		}
 		
 		#endregion
-			
-		if(spawnTimer > 300)
+		nextSpawnTime--;	
+		
+			if(InitializedExtreme)
 			{
-				enemySpawn();
-				spawnTimer = 0;
+
+				if(nextSpawnTime < SpawnTime)
+				{
+					wave = 0;
+					WaveSize = 4;
+					enemySpawn();
+					nextSpawnTime = 5;				
+				}
+			}
+			else
+			{				
+				if(nextSpawnTime < SpawnTime)
+				{
+					wave = 0;
+					enemySpawn();
+					nextSpawnTime = 10;
+					
+				}
 			}
 		
 		}		
@@ -78,19 +100,17 @@ public class Player : MonoBehaviour {
 	
 	void enemySpawn()
 	{
-		if(list_enemy.Count < 10)
+		if(list_enemy.Count < MaxEnemyOnScreen)
 		{
-			randomX = Random.Range(-15f,20f);
-			randomY = Random.Range(-15f,20f);
+			while(wave < WaveSize)
+			{
+				randomX = Random.Range(-15f,20f);
+				randomY = Random.Range(-15f,20f);
 		
-			Instantiate(enemy, new Vector3(randomX, randomY, transform.position.z + 2000), Quaternion.identity);
-			list_enemy.Add(enemy);
+				Instantiate(enemy, new Vector3(randomX, randomY, transform.position.z + 2000), Quaternion.identity);
+				list_enemy.Add(enemy);
+				wave++;
+			}
 		}
-	}
-	
-	void OnTriggerEnter(Collider radius){
-		
-		
-	}
-		
+	}		
 }
