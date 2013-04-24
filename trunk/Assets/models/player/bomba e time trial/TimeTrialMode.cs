@@ -11,10 +11,7 @@ public class TimeTrialMode : MonoBehaviour {
 	
 	private float showTime;
 	
-	private float timeToExplosion;
-	
-	public GameObject explosion;
-	
+	private float timeToExplosion;	
 	
 	public GameObject bomba;
 	
@@ -22,7 +19,7 @@ public class TimeTrialMode : MonoBehaviour {
 	void Start () {
 		
 		regressiveCounter = 0;
-		amountTime = 0;
+		amountTime = 20 ;
 		initialTime = Time.time;
 		bomba = GameObject.FindGameObjectWithTag("bomba");
 		
@@ -39,7 +36,7 @@ public class TimeTrialMode : MonoBehaviour {
 		bomba m_s = bomba.GetComponent<bomba>();
 		
 		
-		if(showTime <= 0){ 
+		if(showTime <= 15){ 
 		
 			//Instantiate(explosion,new Vector3 (0,0, 200), this.transform.rotation);
 			//Application.LoadLevel(13);
@@ -51,7 +48,7 @@ public class TimeTrialMode : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		if  (showTime >= 0){
+		if  (showTime > 0){
 			
 			GUI.Label(new Rect(100, 150, 1000, 100) , "Time: " + showTime);
 		
