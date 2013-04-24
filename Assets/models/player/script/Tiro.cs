@@ -11,7 +11,8 @@ public class Tiro : MonoBehaviour {
 	void Start () 
 	{
 	  	mira = GameObject.FindGameObjectWithTag("mira");
-		enemy = GameObject.FindGameObjectWithTag("enemy");	
+		enemy = GameObject.FindGameObjectWithTag("enemy");
+		
 	  	transform.LookAt(mira.transform);
 	}
 	
@@ -39,6 +40,8 @@ public class Tiro : MonoBehaviour {
 		Mira m_s = mira.GetComponent<Mira>();
 		m_s.pontos += 20;
         Destroy(enemy.gameObject);
+	    Destroy(this.gameObject);
 		
     }
+
 }
