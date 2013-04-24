@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Intro : MonoBehaviour {
 
-	
+    public AudioClip ac;
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -17,8 +18,8 @@ public class Intro : MonoBehaviour {
 	{
 			
 		if(GUI.Button(new Rect(Screen.width - 200 , Screen.height - 200 , 150, 150), "Pular"))
-		{				
-					
+		{
+            audio.PlayOneShot(ac);
 			Application.LoadLevel(1);
 	     }
 		
