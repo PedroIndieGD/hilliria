@@ -147,7 +147,7 @@ public class SimpleAI : MonoBehaviour {
 	void OnTriggerEnter(Collider Player){
 		
 		Mira m_s = mira.GetComponent<Mira>();
-		m_s.vida -=35;
+		
 		Destroy(this.gameObject);
 		//Application.LoadLevel(13);
 		
