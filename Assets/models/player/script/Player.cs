@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	public void FixedUpdate ()
 	{
-		spawnTimer++;
+		SpawnTime++;
 		
 		if(!Paused)
 		{
