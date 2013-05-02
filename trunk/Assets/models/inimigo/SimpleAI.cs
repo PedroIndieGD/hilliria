@@ -146,7 +146,7 @@ public class SimpleAI : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider Player){
 		
-		
+		 
 		Destroy(this.gameObject);
 		//Application.LoadLevel(13);
 		

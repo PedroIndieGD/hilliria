@@ -13,11 +13,11 @@ public class Player : MonoBehaviour {
 	float  randomX,randomY;
 	
 	int SpawnTime = 0;
-	int nextSpawnTime = 10;
+	int nextSpawnTime = 20;
 	public bool InitializedExtreme = false;
 	int WaveSize = 2;
 	int wave = 0;
-	int MaxEnemyOnScreen = 20;
+	int MaxEnemyOnScreen = 100;
 	#endregion
 	
 	Vector3 direcao;
@@ -37,10 +37,11 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	public void FixedUpdate ()
 	{
-		SpawnTime++;
+		//SpawnTime++;
 		
 		if(!Paused)
 		{
+		
 			
 		Mira m_s = mira.GetComponent<Mira>();
 				
@@ -90,7 +91,7 @@ public class Player : MonoBehaviour {
 				{
 					wave = 0;
 					enemySpawn();
-					nextSpawnTime = 10;
+					nextSpawnTime = 100;
 					
 				}
 			}
@@ -100,17 +101,17 @@ public class Player : MonoBehaviour {
 	
 	void enemySpawn()
 	{
-		if(list_enemy.Count < MaxEnemyOnScreen)
-		{
+		//if(list_enemy.Count < MaxEnemyOnScreen)
+		//{
 			while(wave < WaveSize)
 			{
-				randomX = Random.Range(-15f,20f);
+				randomX = Random.Range(-30f,30f);
 				randomY = Random.Range(-15f,20f);
 		
 				Instantiate(enemy, new Vector3(randomX, randomY, transform.position.z + 2000), Quaternion.identity);
 				list_enemy.Add(enemy);
 				wave++;
 			}
-		}
+		//}
 	}		
 }
