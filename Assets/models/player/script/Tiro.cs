@@ -5,7 +5,8 @@ public class Tiro : MonoBehaviour {
 	
 	GameObject mira;
 	GameObject enemy;
-    GameObject bomba;
+	GameObject player;
+	GameObject bomba;
 	float destruir;
 	
 	// Use this for initialization
@@ -13,8 +14,8 @@ public class Tiro : MonoBehaviour {
 	{
 	  	mira = GameObject.FindGameObjectWithTag("mira");
 		enemy = GameObject.FindGameObjectWithTag("enemy");
-	bomba = GameObject.FindGameObjectWithTag("bomba");
-		
+	  bomba = GameObject.FindGameObjectWithTag("bomba");
+        player = GameObject.FindGameObjectWithTag("Player");		
 	  	transform.LookAt(mira.transform);
 	}
 	
@@ -50,9 +51,13 @@ public class Tiro : MonoBehaviour {
        if(TheCollider.gameObject.tag == "enemy")
        {
          Mira m_s = mira.GetComponent<Mira>();
+			
+		
+			
          m_s.pontos += 20;
          Destroy(enemy.gameObject);
          Destroy(this.gameObject);
+		
        }
        else if(TheCollider.gameObject.tag == "bomba")
        {
